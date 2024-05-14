@@ -66,6 +66,6 @@ public class EdiToXMLTest {
     }
 
     private String ediFile(String fileName) {
-        return this.getClass().getResource(fileName).getPath();
+        return new File(this.getClass().getResource(fileName).getPath()).toPath().toString();
     }
 }

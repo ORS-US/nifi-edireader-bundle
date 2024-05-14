@@ -10,7 +10,6 @@ import org.junit.Test;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
@@ -68,10 +67,13 @@ public class EdiToJSONTest {
 
         MockFlowFile result = results.get(0);
 
-        byte[] bytes = Files.readAllBytes(Paths.get(output));
+        // Change line ending of the output file to be inline with the operating system line separator
+        File outputFile = FileUtils.getFile(output);
+        String outputContent = FileUtils.readFileToString(outputFile, Charset.defaultCharset());
+        outputContent = outputContent.replaceAll("\n", System.getProperty("line.separator"));
 
         // Test attributes and content
-        result.assertContentEquals(bytes);
+        result.assertContentEquals(outputContent.getBytes(Charset.defaultCharset()));
     }
 
     @Test
@@ -91,10 +93,13 @@ public class EdiToJSONTest {
 
         MockFlowFile result = results.get(0);
 
-        byte[] bytes = Files.readAllBytes(Paths.get(output));
+        // Change line ending of the output file to be inline with the operating system line separator
+        File outputFile = FileUtils.getFile(output);
+        String outputContent = FileUtils.readFileToString(outputFile, Charset.defaultCharset());
+        outputContent = outputContent.replaceAll("\n", System.getProperty("line.separator"));
 
         // Test attributes and content
-        result.assertContentEquals(bytes);
+        result.assertContentEquals(outputContent.getBytes(Charset.defaultCharset()));
     }
 
     @Test
@@ -117,7 +122,7 @@ public class EdiToJSONTest {
     }
 
     private String ediFile(String fileName) {
-        return this.getClass().getResource(fileName).getPath();
+        return new File(this.getClass().getResource(fileName).getPath()).toPath().toString();
     }
 
 }
