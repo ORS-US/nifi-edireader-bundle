@@ -2,7 +2,6 @@ package org.apache.nifi.processors.edireader;
 
 import com.berryworks.edireader.EDIParserFactory;
 
-import com.berryworks.edireader.error.MissingMandatoryElementException;
 import org.apache.nifi.annotation.documentation.CapabilityDescription;
 import org.apache.nifi.annotation.documentation.Tags;
 import org.apache.nifi.components.PropertyDescriptor;

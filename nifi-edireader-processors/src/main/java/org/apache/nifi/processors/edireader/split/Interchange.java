@@ -53,7 +53,7 @@ class Interchange {
 
     public Map<String, String> writer() {
 
-        Map results = new HashMap();
+        Map<String, String> results = new HashMap<>();
 
         transactions.forEach(t -> {
 

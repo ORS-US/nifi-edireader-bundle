@@ -88,6 +88,7 @@ public class Splitter {
                     break;
             }
         }
+        scanner.close();
         return flowFiles;
     }
 
