@@ -16,7 +16,7 @@
     </parent>
 
     <artifactId>nifi-edireader-bundle</artifactId>
-    <version>1.9.2</version>
+    <version>2.0.0</version>
     <packaging>pom</packaging>
 
     <properties>

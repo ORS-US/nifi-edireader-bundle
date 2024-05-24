@@ -25,7 +25,7 @@ documents into XML using the
 ```bash
 > cd nifi-edireader-processor
 > mvn package
-> cp nifi-edireader-nar/target/nifi-edireader-nar-1.9.2.nar /NIFI_INSTALL/lib/
+> cp nifi-edireader-nar/target/nifi-edireader-nar-2.0.0.nar /NIFI_INSTALL/lib/
 ```
 
 ## License
